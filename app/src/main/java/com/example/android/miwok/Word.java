@@ -12,14 +12,37 @@ public class Word {
     /*Miwok translation of the word */
     private String mMiwokTranslation;
 
+    private int mImageResourceId = NO_IMAGE_PROVIDED;
+
+    private static final int NO_IMAGE_PROVIDED = -1;
+
+    private int mSoundResourceId = NO_SOUND_PROVIDED;
+
+    private static final int NO_SOUND_PROVIDED = -1;
+
     /**
      * Create a new Word Object
      * @param defaultTranslation
      * @param miwokTranslation
      */
-    public Word (String defaultTranslation, String miwokTranslation){
+    public Word (String defaultTranslation, String miwokTranslation, int soundResourceId){
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mSoundResourceId = soundResourceId;
+    }
+
+
+    /**
+     * Word constructor that take 2 Strings and an image
+     * @param defaultTranslation
+     * @param miwokTranslation
+     * @param imageResourceId
+     */
+    public Word (String defaultTranslation, String miwokTranslation, int imageResourceId, int soundResourceId){
+        mDefaultTranslation = defaultTranslation;
+        mMiwokTranslation = miwokTranslation;
+        mImageResourceId = imageResourceId;
+        mSoundResourceId = soundResourceId;
     }
 
     /**
@@ -37,4 +60,12 @@ public class Word {
     public String getMiworkTranslation() {
         return mMiwokTranslation;
     }
+
+    public int getImageResourceId() {return mImageResourceId;}
+
+    public boolean hasImage(){ return mImageResourceId != NO_IMAGE_PROVIDED;}
+
+    public int getSoundResourceId(){return mSoundResourceId;}
+
+    public boolean hasSound(){return mSoundResourceId != NO_SOUND_PROVIDED;}
 }
